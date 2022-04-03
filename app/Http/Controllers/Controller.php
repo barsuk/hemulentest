@@ -20,7 +20,7 @@ class Controller extends BaseController
 //        var_dump($lists);die;
 
         foreach ($lists as $list) {
-            $entries = DB::select('select lastname, firstname, middlename from lists where user_id = ?
+            $entries = DB::select('select lastname, firstname, middlename from people where user_id = ?
 and file_id = ?', [$user_id, $list->id]);
             $list->entries = $entries;
         }

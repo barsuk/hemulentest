@@ -27,7 +27,7 @@
                                 Файл {{$list->name}}
                                 <ul>
                                     @forelse($list->entries as $entry)
-                                        {{$entry->lastname}}
+                                        {{$entry->lastname}} {{$entry->firstname}} {{$entry->middlename}}
                                     @empty
                                         <p>Пустой файл</p>
                                     @endforelse
