@@ -1,6 +1,6 @@
 #!/bin/bash
 docker-compose up -d
-until nc -z localhost 3306
+until docker-compose exec laravel.test php artisan migrate
 do
   echo "HemulenTest DB is not up yet. Waiting..."
   sleep 5
