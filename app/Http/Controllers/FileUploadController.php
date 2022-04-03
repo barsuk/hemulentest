@@ -44,7 +44,10 @@ class FileUploadController extends Controller
         // https://laravel.com/docs/9.x/authentication#retrieving-the-authenticated-user
         $save->user_id = Auth::id();
 
-        return redirect('list')->with('status', 'File Has been uploaded successfully in laravel');
+        if (!$save->push())
+            return redirect('list')->with('fail', 'Не получилось загрузить файл.');    ;
+
+        return redirect('list')->with('success', 'Файл загружен. Проверьте реестры.');
 
     }
 }

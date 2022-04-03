@@ -10,6 +10,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h2 class="text-center">Ваши реестры</h2>
+                    @if ($message = Session::get('fail'))
+                        <div class="alert alert-block">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
                     1
                     2
                     3
