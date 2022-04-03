@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/list', function () {
-    return view('list');
-})->middleware(['auth'])->name('list');
+Route::get('/list', [Controller::class, 'list'])->middleware(['auth'])->name('list');
 
 require __DIR__ . '/auth.php';
 
-Route::get('file-upload', [FileUploadController::class, 'index']);
 Route::post('store', [FileUploadController::class, 'store']);

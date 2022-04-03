@@ -20,10 +20,21 @@
                             <strong>{{ $message }}</strong>
                         </div>
                     @endif
-                    1
-                    2
-                    3
-
+                    <ol type="A">
+                        @foreach($lists as $list)
+                            {{--                        {{$list->fio}}--}}
+                            <li style="margin-bottom: 5px">
+                                Файл {{$list->name}}
+                                <ul>
+                                    @forelse($list->entries as $entry)
+                                        {{$entry->lastname}}
+                                    @empty
+                                        <p>Пустой файл</p>
+                                    @endforelse
+                                </ul>
+                            </li>
+                        @endforeach
+                    </ol>
                 </div>
             </div>
         </div>
